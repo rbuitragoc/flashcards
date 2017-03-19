@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rimraf dist && webpack -w"
+    "start": "rimraf dist && webpack-dev-server"
   },
   "author": "Rick Buitrago",
   "license": "ISC",
@@ -20,7 +20,8 @@
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.14.1",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
     "lodash": "^4.17.4"

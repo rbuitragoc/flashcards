@@ -1,22 +1,18 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var webpack = require('webpack') 
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack') 
 
 module.exports = {
     context: __dirname,
-    entry: {
-        main: './src/index.js'
-    },
+    entry: './src/index.js',
     output: {
         filename: '[name].bundle.[hash].js',
+
         path: path.resolve(__dirname, 'dist') // this is safer given filesystems differences
     },
     module: {
         rules: [
-            {
-                test: /\.(js|jsx)$/, 
-                use: 'babel-loader'
-            },
+            { test: /\.(js|jsx)$/, use: 'babel-loader' },
             {
                 test: /\.scss$$/,
                 use: [
@@ -29,9 +25,10 @@ module.exports = {
         ],
     },
     plugins: [
+        new webpack.optimize.UglifyJsPlugin(),
         new HtmlWebpackPlugin({
             title: 'Hola Flashcards',
-            filename: 'flashcards.html'
+            filename: 'index.html'
         })/*,
         new webpack.optimize.CommonsChunkPlugin({
             name: 'commons',
