@@ -4,7 +4,7 @@ import styles from './styles.scss';
 let component = () => {
     var element = document.createElement('div');
 
-    element.innerHTML = 'Hello webpack';
+    element.innerHTML = '<div class="title">Hello webpack</div>';
     element.classList.add(styles.body);
     return element;
 }
