@@ -12,14 +12,19 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.(js|jsx)$/, use: 'babel-loader' },
+            { 
+                test: /\.(js|jsx)$/, 
+                loader: 'babel-loader',
+                include: [
+                    path.resolve(__dirname, 'src')
+                ] 
+            },
             {
                 test: /\.scss$$/,
                 use: [
                     { loader: "style-loader" },
                     { loader: "css-loader" },
                     { loader: "sass-loader"}
-                    // needed: react module
                 ]
             }
         ],
@@ -28,7 +33,7 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin(),
         new HtmlWebpackPlugin({
             title: 'Hola Flashcards',
-            filename: 'index.html'
+            template: './src/index.html'
         })/*,
         new webpack.optimize.CommonsChunkPlugin({
             name: 'commons',
