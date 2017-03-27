@@ -15,16 +15,15 @@ module.exports = {
             { 
                 test: /\.(js|jsx)$/, 
                 loader: 'babel-loader',
-                include: [
-                    path.resolve(__dirname, 'src')
-                ] 
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')]
             },
             {
                 test: /\.scss$$/,
                 use: [
                     { loader: "style-loader" },
                     { loader: "css-loader" },
-                    { loader: "sass-loader"}
+                    { loader: "sass-loader" }
                 ]
             }
         ],
